@@ -543,6 +543,7 @@ function brunch()
 function breakfast()
 {
     target=$1
+    local variant=$2
     CUSTOM_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     for f in `/bin/ls vendor/solo/vendorsetup.sh 2> /dev/null`
@@ -561,8 +562,11 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the solo model name
-            lunch solo_$target-userdebug
+            # This is probably just the nexus model name
+            if [ -z "$variant" ]; then
+                variant="userdebug"
+            fi
+            lunch solo_$target-$variant
         fi
     fi
     return $?
