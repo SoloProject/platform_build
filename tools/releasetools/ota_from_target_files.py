@@ -129,7 +129,7 @@ OPTIONS.updater_binary = None
 OPTIONS.oem_source = None
 OPTIONS.fallback_to_full = True
 OPTIONS.full_radio = False
-OPTIONS.backuptool = False
+OPTIONS.backuptool = True
 OPTIONS.override_device = 'auto'
 
 def MostPopularKey(d, default):
@@ -665,9 +665,12 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   if OPTIONS.backuptool:
     script.ShowProgress(0.02, 10)
 
-  if block_based:
+    if block_based:
     script.Mount("/system")
     script.RunBackup("restore")
+
+    if block_based:
+      script.Unmount("/system")
 
   if block_based:
     script.Print("Flashing SuperSU...")
