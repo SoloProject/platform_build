@@ -1592,7 +1592,7 @@ ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
 	@echo "Running releasetool"
 	$(hide) $(TARGET_CUSTOM_RELEASETOOL)
 else
-	$(hide) ./vendor/cm/tools/squisher
+	$(hide) ./vendor/solo/tools/squisher
 endif
 
 endif    # recovery_fstab is defined
