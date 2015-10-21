@@ -180,7 +180,7 @@ include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
 ifneq ($(CUSTOM_BUILD),)
-    all_product_configs := $(shell ls vendor/solo/products/solo_$(CUSTOM_BUILD).mk)
+    all_product_configs := $(shell ls vendor/aosip/products/aosip_$(CUSTOM_BUILD).mk)
   else
     # Read in all of the product definitions specified by the AndroidProducts.mk
     # files in the tree.
